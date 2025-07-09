@@ -1,8 +1,11 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap', // Font loading optimizasyonu
+  preload: true
+});
 
 export const metadata = {
   title: "Aybek Güvenlik - Alarm ve Kamera Sistemleri",
@@ -45,14 +48,27 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'krPvtUAv6kOWL-frVHXvyelrx7f17zVjJniKp_9BdwQ', // Google Search Console'dan alacağınız kod
+    google: 'krPvtUAv6kOWL-frVHXvyelrx7f17zVjJniKp_9BdwQ',
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="tr">
-      <body className={`${inter.className} transition-colors duration-300`}>
+    <html lang="tr" className="scroll-smooth">
+      <head>
+        {/* Critical CSS preload */}
+        <link rel="preload" href="/globals.css" as="style" />
+        <link rel="preload" href="/_next/static/css/app/layout.css" as="style" />
+        
+        {/* DNS prefetch */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        
+        {/* Preconnect */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className={`${inter.className} antialiased transition-colors duration-300`}>
         {children}
       </body>
     </html>
