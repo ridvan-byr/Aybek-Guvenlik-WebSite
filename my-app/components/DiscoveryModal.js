@@ -58,11 +58,11 @@ export default function DiscoveryModal({ open, onClose }) {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50" onClick={onClose}>
-      <div className="fixed bottom-6 right-6 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md md:max-w-lg max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-        <div className="p-6 md:p-8">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
+    <div className="fixed inset-0 z-50 bg-black/50" onClick={onClose}>
+      <div className="fixed inset-2 md:bottom-6 md:right-6 md:inset-auto bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-auto max-w-sm md:max-w-md lg:max-w-lg max-h-[calc(100vh-1rem)] md:max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+        <div className="p-4 md:p-6 lg:p-8">
+          <div className="flex justify-between items-center mb-4 md:mb-6">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-white">
               Ücretsiz Keşif Talebi
             </h2>
             <button
