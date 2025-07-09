@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHP Test</title>
+</head>
+<body>
+    <h1>PHP Test Sayfası</h1>
+    
+    <h2>1. Test Dosyası</h2>
+    <button onclick="testPHP()">PHP Test Et</button>
+    <div id="result1"></div>
+    
+    <h2>2. Database Oluştur</h2>
+    <button onclick="initDB()">Database Oluştur</button>
+    <div id="result2"></div>
+    
+    <h2>3. Form Test</h2>
+    <button onclick="testForm()">Form Test Et</button>
+    <div id="result3"></div>
+
+    <script>
+    async function testPHP() {
+        try {
+            const response = await fetch('/api/test.php');
+            const data = await response.json();
+            document.getElementById('result1').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        } catch (error) {
+            document.getElementById('result1').innerHTML = 'Hata: ' + error.message;
+        }
+    }
+    
+    async function initDB() {
+        try {
+            const response = await fetch('/api/init-db.php');
+            const text = await response.text();
+            document.getElementById('result2').innerHTML = '<pre>' + text + '</pre>';
+        } catch (error) {
+            document.getElementById('result2').innerHTML = 'Hata: ' + error.message;
+        }
+    }
+    
+    async function testForm() {
+        try {
+            const response = await fetch('/api/kesif.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: 'Test',
+                    surname: 'Kullanıcı',
+                    phone: '05551234567',
+                    email: 'test@test.com',
+                    isBusiness: false,
+                    allowKVKK: true
+                })
+            });
+            const data = await response.json();
+            document.getElementById('result3').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        } catch (error) {
+            document.getElementById('result3').innerHTML = 'Hata: ' + error.message;
+        }
+    }
+    </script>
+</body>
+</html> 
