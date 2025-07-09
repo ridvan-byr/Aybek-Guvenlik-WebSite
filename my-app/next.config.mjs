@@ -2,7 +2,16 @@
 const nextConfig = {
   // Domain konfigürasyonu
   images: {
-    domains: ['aybekgüvenlik.com', 'www.aybekgüvenlik.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'aybekgüvenlik.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.aybekgüvenlik.com',
+      },
+    ],
     formats: ['image/webp', 'image/avif'],
   },
   // Production için optimizasyonlar

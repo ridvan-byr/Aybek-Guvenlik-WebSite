@@ -354,8 +354,8 @@ export default function Header() {
           <div className="md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shadow-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <button 
-                onClick={() => navigateTo('/')}
-                className="block w-full text-left px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md font-medium transition-colors duration-200 text-base md:text-lg"
+                onClick={() => { navigateTo('/'); closeMobileMenu(); }}
+                className="block w-full text-left px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md font-medium transition-colors duration-200 text-base md:text-lg cursor-pointer"
               >
                 Ana Sayfa
               </button>
@@ -365,13 +365,13 @@ export default function Header() {
                 <div className="text-base md:text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Alarm Sistemleri</div>
                 <div className="ml-4 space-y-2">
                   <button 
-                    onClick={() => navigateTo('/alarm-systems#ev-guvenligi')}
+                    onClick={() => { navigateTo('/alarm-systems#ev-guvenligi'); closeMobileMenu(); }}
                     className="block w-full text-left px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm cursor-pointer"
                   >
                     🏠 Ev Güvenliği
                   </button>
                   <button 
-                    onClick={() => navigateTo('/alarm-systems#is-guvenligi')}
+                    onClick={() => { navigateTo('/alarm-systems#is-guvenligi'); closeMobileMenu(); }}
                     className="block w-full text-left px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm cursor-pointer"
                   >
                     🏢 İş Güvenliği
@@ -383,27 +383,24 @@ export default function Header() {
               <div className="px-3 py-2">
                 <div className="text-base md:text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Kamera Sistemleri</div>
                 <div className="ml-4 space-y-2">
-                  <a 
-                    href="/camera-systems#ip-kameralar" 
-                    className="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm"
-                    onClick={closeMobileMenu}
+                  <button 
+                    onClick={() => { navigateTo('/camera-systems#features'); closeMobileMenu(); }}
+                    className="block w-full text-left px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm cursor-pointer"
                   >
-                    📹 IP Kameralar
-                  </a>
-                  <a 
-                    href="/camera-systems#dome-kameralar" 
-                    className="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm"
-                    onClick={closeMobileMenu}
+                    ✅ Kamera Sistem Özellikleri
+                  </button>
+                  <button 
+                    onClick={() => { navigateTo('/camera-systems#types'); closeMobileMenu(); }}
+                    className="block w-full text-left px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm cursor-pointer"
                   >
-                    🔵 Dome Kameralar
-                  </a>
-                  <a 
-                    href="/camera-systems#bullet-kameralar" 
-                    className="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm"
-                    onClick={closeMobileMenu}
+                    📹 Kamera Türleri
+                  </button>
+                  <button 
+                    onClick={() => { navigateTo('/camera-systems#recording'); closeMobileMenu(); }}
+                    className="block w-full text-left px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm cursor-pointer"
                   >
-                    🔴 Bullet Kameralar
-                  </a>
+                    💾 Kayıt Sistemleri
+                  </button>
                 </div>
               </div>
 
@@ -411,51 +408,45 @@ export default function Header() {
               <div className="px-3 py-2">
                 <div className="text-base md:text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Araç Takip ve Şarj Sistemleri</div>
                 <div className="ml-4 space-y-2">
-                  <a 
-                    href="/vehicle-tracking#gps-devices" 
-                    className="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm"
-                    onClick={closeMobileMenu}
+                  <button 
+                    onClick={() => { navigateTo('/vehicle-tracking#gps-devices'); closeMobileMenu(); }}
+                    className="block w-full text-left px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm cursor-pointer"
                   >
                     📍 GPS Takip Cihazları
-                  </a>
-                  <a 
-                    href="/vehicle-tracking#fleet-management" 
-                    className="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm"
-                    onClick={closeMobileMenu}
+                  </button>
+                  <button 
+                    onClick={() => { navigateTo('/vehicle-tracking#fleet-management'); closeMobileMenu(); }}
+                    className="block w-full text-left px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm cursor-pointer"
                   >
                     🚛 Filo Yönetim Yazılımı
-                  </a>
-                  <a 
-                    href="/vehicle-tracking#route-optimization" 
-                    className="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm"
-                    onClick={closeMobileMenu}
+                  </button>
+                  <button 
+                    onClick={() => { navigateTo('/vehicle-tracking#route-optimization'); closeMobileMenu(); }}
+                    className="block w-full text-left px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm cursor-pointer"
                   >
                     🗺️ Rota Optimizasyonu
-                  </a>
-                  <a 
-                    href="/vehicle-tracking#charging-systems" 
-                    className="block px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm"
-                    onClick={closeMobileMenu}
+                  </button>
+                  <button 
+                    onClick={() => { navigateTo('/vehicle-tracking#charging-systems'); closeMobileMenu(); }}
+                    className="block w-full text-left px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors duration-200 text-sm cursor-pointer"
                   >
                     ⚡ Şarj Sistemleri
-                  </a>
+                  </button>
                 </div>
               </div>
               
-              <a 
-                href="/about" 
-                className="block px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md font-medium transition-colors duration-200 text-base md:text-lg"
-                onClick={closeMobileMenu}
+              <button 
+                onClick={() => { navigateTo('/about'); closeMobileMenu(); }}
+                className="block w-full text-left px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md font-medium transition-colors duration-200 text-base md:text-lg cursor-pointer"
               >
                 Hakkımızda
-              </a>
-              <a 
-                href="/contact" 
-                className="block px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md font-medium transition-colors duration-200 text-base md:text-lg"
-                onClick={closeMobileMenu}
+              </button>
+              <button 
+                onClick={() => { navigateTo('/contact'); closeMobileMenu(); }}
+                className="block w-full text-left px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md font-medium transition-colors duration-200 text-base md:text-lg cursor-pointer"
               >
                 İletişim
-              </a>
+              </button>
               <div className="pt-2">
                 <a
                   href="https://wa.me/905322020625"

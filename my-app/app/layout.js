@@ -61,10 +61,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr" className="scroll-smooth">
       <head>
-        {/* Critical CSS preload */}
-        <link rel="preload" href="/globals.css" as="style" />
-        <link rel="preload" href="/_next/static/css/app/layout.css" as="style" />
-        
         {/* DNS prefetch */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
