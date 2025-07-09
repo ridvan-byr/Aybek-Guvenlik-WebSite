@@ -23,6 +23,11 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
   openGraph: {
     title: "Aybek Güvenlik - Alarm ve Kamera Sistemleri",
     description: "Profesyonel alarm, kamera ve güvenlik sistemleri. Ev ve iş yeriniz için en güvenilir teknolojilerle yanınızdayız.",
