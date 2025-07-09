@@ -31,7 +31,7 @@ export default function AdminLoginPage() {
       }
     } catch (err) {
       setError('Bir hata oluştu. Lütfen tekrar deneyin.');
-    }
+    }cxzczx
   };
 
   return (
