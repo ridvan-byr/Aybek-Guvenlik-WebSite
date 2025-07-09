@@ -46,10 +46,15 @@ export default function KesiflerAdminPage() {
     try {
       const res = await fetch(`/api/discovery?id=${id}`, { method: 'DELETE' });
       const data = await res.json();
-      if (data.success) setKesifler(kesifler.filter(k => k.id !== id));
-      else alert(data.error || 'Silinemedi.');
+      if (data.success) {
+        setKesifler(kesifler.filter(k => k.id !== id));
+        alert('Kayıt başarıyla silindi.');
+      } else {
+        alert(data.error || 'Silinemedi.');
+      }
     } catch (e) {
-      alert('Silinemedi.');
+      console.error('Silme hatası:', e);
+      alert('Silinemedi. Lütfen tekrar deneyin.');
     }
   }
 
@@ -83,21 +88,21 @@ export default function KesiflerAdminPage() {
           <tbody>
             {kesifler.map(k => (
               <tr key={k.id} className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700">
-                <td className="py-2 px-4 text-center">{k.id}</td>
-                <td className="py-2 px-4 text-center">{k.firstName}</td>
-                <td className="py-2 px-4 text-center">{k.lastName}</td>
-                <td className="py-2 px-4 text-center">{k.phone}</td>
-                <td className="py-2 px-4 text-center">{k.email}</td>
-                <td className="py-2 px-4 text-center">{k.isBusiness ? 'Evet' : 'Hayır'}</td>
-                <td className="py-2 px-4 text-center">{k.allowKVKK ? 'Evet' : 'Hayır'}</td>
-                <td className="py-2 px-4 text-center">{new Date(k.createdAt).toLocaleString('tr-TR')}</td>
+                <td className="py-2 px-4 text-center text-gray-800 dark:text-gray-200">{k.id}</td>
+                <td className="py-2 px-4 text-center text-gray-800 dark:text-gray-200">{k.firstName}</td>
+                <td className="py-2 px-4 text-center text-gray-800 dark:text-gray-200">{k.lastName}</td>
+                <td className="py-2 px-4 text-center text-gray-800 dark:text-gray-200">{k.phone}</td>
+                <td className="py-2 px-4 text-center text-gray-800 dark:text-gray-200">{k.email}</td>
+                <td className="py-2 px-4 text-center text-gray-800 dark:text-gray-200">{k.isBusiness ? 'Evet' : 'Hayır'}</td>
+                <td className="py-2 px-4 text-center text-gray-800 dark:text-gray-200">{k.allowKVKK ? 'Evet' : 'Hayır'}</td>
+                <td className="py-2 px-4 text-center text-gray-800 dark:text-gray-200">{new Date(k.createdAt).toLocaleString('tr-TR')}</td>
                 <td className="py-2 px-4 text-center">
                   <button onClick={() => handleDelete(k.id)} className="bg-red-600 hover:bg-red-700 text-white rounded px-3 py-1 text-sm font-bold">Sil</button>
                 </td>
               </tr>
             ))}
-            {loading && <tr><td colSpan={9} className="text-center py-8 text-gray-400">Yükleniyor...</td></tr>}
-            {!loading && kesifler.length === 0 && <tr><td colSpan={9} className="text-center py-8 text-gray-400">Kayıt yok.</td></tr>}
+            {loading && <tr><td colSpan={9} className="text-center py-8 text-gray-500 dark:text-gray-400">Yükleniyor...</td></tr>}
+            {!loading && kesifler.length === 0 && <tr><td colSpan={9} className="text-center py-8 text-gray-500 dark:text-gray-400">Kayıt yok.</td></tr>}
           </tbody>
         </table>
       </div>

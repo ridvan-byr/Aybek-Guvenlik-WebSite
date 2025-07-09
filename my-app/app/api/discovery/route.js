@@ -27,6 +27,14 @@ export async function POST(request) {
 export async function DELETE(request) {
   const { searchParams } = new URL(request.url);
   const id = Number(searchParams.get('id'));
-  // fakeKesifler = fakeKesifler.filter(k => k.id !== id); // This line was removed as per the new_code, as fakeKesifler is no longer defined.
-  return Response.json({ success: true });
+  
+  try {
+    await prisma.discoveryRequest.delete({
+      where: { id: id }
+    });
+    return Response.json({ success: true });
+  } catch (error) {
+    console.error('Silme hatası:', error);
+    return Response.json({ success: false, error: 'Kayıt silinemedi.' });
+  }
 } 
