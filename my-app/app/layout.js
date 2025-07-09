@@ -45,7 +45,7 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code', // Google Search Console'dan alacağınız kod
+    google: 'google-site-verification=krPvtUAv6kOWL-frVHXvyelrx7f17zVjJniKp_9BdwQ', // Google Search Console'dan alacağınız kod
   },
 };
 
